@@ -15,7 +15,7 @@ public:
     }
 };
 
-void input_tree()
+Node* input_tree()
 {
     int val;
     cin >> val;
@@ -67,12 +67,47 @@ void input_tree()
     return root;
 }
 
-void level_order(Node *root)
+// void level_order(Node *root)
+// {
+//     queue<Node>
+// }
+// make recursive function
+void order_level(Node *root)
 {
-    queue<Node>
-}
+    if(root == NULL) 
+    {
+        cout<< "Tree Blank"<<endl;
+        return;
+    }
+    queue<Node *> q;
+    q.push(root);
+    while (!q.empty())
+    {
+        // 1st ber kore ana
+        // f = room or space keep node from push in line
+        // front() = head
+        // q.pop() = Node out
+        Node *f = q.front();
+        q.pop();
+
+        // 2nd jabotioyo kaj ja ace
+        cout << f->val << " ";
+
+        // 3rd tar children
+        if (f->left)
+            q.push(f->left);
+        if (f->right)
+            q.push(f->right);
+    };
+};
+
 int main()
 {
+    Node* root = input_tree();
+    order_level(root);
 
     return 0;
 }
+
+//10 20 60 30 60 70 -1 -1 40
+//-1 -1 -1 -1 80 -1 -1 -1

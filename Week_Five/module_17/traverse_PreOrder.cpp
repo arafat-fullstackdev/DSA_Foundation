@@ -15,30 +15,19 @@ public:
     }
 };
 
-// make recursive function
-void order_level(Node *root)
+// Create Recursion
+void preOrder(Node* root)
 {
-    queue<Node *> q;
-    q.push(root);
-    while (!q.empty())
+    //Base Case
+    if(root == NULL)
     {
-        // 1st ber kore ana
-        // f = room or space keep node from push in line
-        // front() = head
-        // q.pop() = Node out
-        Node *f = q.front();
-        q.pop();
+        return;
+    }
+    cout<<root->val<<" ";
+    preOrder(root->left);
+    preOrder(root->right);
 
-        // 2nd jabotioyo kaj ja ace
-        cout << f->val << " ";
-
-        // 3rd tar children
-        if (f->left)
-            q.push(f->left);
-        if (f->right)
-            q.push(f->right);
-    };
-};
+}
 int main()
 {
     // create Node
@@ -64,7 +53,8 @@ int main()
     d->right = g;
     h->right = i;
 
-    order_level(root);
+    //call
+    preOrder(root);
 
     return 0;
 }
