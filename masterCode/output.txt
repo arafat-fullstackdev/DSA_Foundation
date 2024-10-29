@@ -1,3 +1,1 @@
-My Union Integer: 32
-My Union Double: 4.456423
-My Union Integer 2: -1365868320
+Name: Alen Border Age:22
